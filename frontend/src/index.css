@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s; }
+
+/* ── Dark theme (default) — Premium Navy & Gold ── */
+:root {
+  --bg: #0b1120;
+  --bg2: #111a30;
+  --border: #21304d;
+  --fg: #eef1f6;
+  --fg-muted: #94a3b8;
+  --fg-subtle: #5b6b85;
+  --accent: #d4af37;
+  --accent-dim: #b8932c;
+  --pill-bg: rgba(255,255,255,0.04);
+  --pill-border: #21304d;
+  --card-hover: rgba(255,255,255,0.03);
+}
+
+/* ── Light theme — Premium Ivory & Gold ── */
+:root[data-theme="light"] {
+  --bg: #faf8f4;
+  --bg2: #ffffff;
+  --border: #e6e1d6;
+  --fg: #1c2433;
+  --fg-muted: #5b6472;
+  --fg-subtle: #9ca3af;
+  --accent: #a8842c;
+  --accent-dim: #8a6c1f;
+  --pill-bg: rgba(0,0,0,0.03);
+  --pill-border: #e6e1d6;
+  --card-hover: rgba(0,0,0,0.02);
+}
+
+::selection { background: #d4af3750; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+:root[data-theme="light"] ::-webkit-scrollbar-thumb { background: #ccc; }
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow { box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 15%, transparent); }
+}
