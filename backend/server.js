@@ -134,6 +134,7 @@
 
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 
@@ -203,7 +204,7 @@ async function sendNotification(booking) {
       </a>
 
       <p style="color:#333;font-size:11px;margin-top:24px">
-        Ayub Dev  · mdayub0205@gmail.com · Tamil Nadu, India
+        H&A Dev Studio · mdayub0205@gmail.com · Tamil Nadu, India
       </p>
     </div>
   `;
@@ -216,7 +217,7 @@ async function sendNotification(booking) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Ayub Dev  <onboarding@resend.dev>",
+        from: "H&A Dev Studio <onboarding@resend.dev>",
         to: process.env.MAIL_TO || "mdayub0205@gmail.com",
         reply_to: booking.email || undefined,
         subject: `📅 New Booking: ${booking.name}${booking.business ? ` (${booking.business})` : ""} — ${booking.deadline || "Flexible"}`,
@@ -259,4 +260,4 @@ app.get("/api/bookings", (req, res) => res.json(loadBookings()));
 app.get("/api/health", (_, res) => res.json({ status: "ok" }));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅  Ayub Backend running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`✅  H&A Backend running on http://localhost:${PORT}`));
